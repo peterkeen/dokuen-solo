@@ -8,6 +8,7 @@ Deploy 12-factor applications to remote servers using heroku-style buildpacks. D
 
 1. Create a Capfile in your project that looks like this:
 
+    ```
     require 'rubygems'
     require 'dokuen-solo/recipes/deploy'
     load 'deploy'
@@ -24,19 +25,28 @@ Deploy 12-factor applications to remote servers using heroku-style buildpacks. D
       'RACK_ENV' => 'production',
       'PATH' => 'bin:vendor/bundle/ruby/1.9.1/bin:/usr/local/bin:/usr/bin:/bin',
     }
+    ```
 
 2. Add a remote server. Note: right now Dokuen Solo only supports Ubuntu 12.04 LTS and Nginx.
 
+    ```
     $ dokuen-solo add yourserver you@yourserver.com
+    ```
 
 3. Prepare your remote server. This will create the required directory structure as well as install a few gems that are needed for installation.
 
+    ```
     $ cap teroknor deploy:prepare
+    ```
     
 4. Push your app
 
+    ```
     $ cap teroknor deploy
+    ```
     
 5. Check to see your app deployed correctly
 
+    ```
     $ curl http://www.yourdomain.com
+    ```
